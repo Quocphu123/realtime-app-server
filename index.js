@@ -14,16 +14,14 @@ let allUsers = [];
 
 
 const corsOptions = {
-    origin: '*',
+    origin: 'https://realtime-app-server.onrender.com',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200,
 }
 app.use(cors(corsOptions)); // Add cors middleware
 const server = http.createServer(app);
 
-server.prependListener("request", (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-});
+
 
 // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
 const io = new Server(server, {
