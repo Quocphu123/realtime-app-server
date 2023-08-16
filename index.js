@@ -11,7 +11,14 @@ const leaveRoom = require('./server/utils/leave-room');
 const CHAT_BOT = 'ChatBot';
 let chatRoom = '';
 let allUsers = [];
-app.use(cors()); // Add cors middleware
+
+
+const corsOptions = {
+    origin: '*',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+}
+app.use(cors(corsOptions)); // Add cors middleware
 const server = http.createServer(app);
 
 server.prependListener("request", (req, res) => {
