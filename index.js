@@ -12,17 +12,22 @@ const CHAT_BOT = 'ChatBot';
 let chatRoom = '';
 let allUsers = [];
 
+const option = {
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
+}
 
-
-app.use(cors()); // Add cors middleware
+app.use(cors(option)); // Add cors middleware
 const server = http.createServer(app);
 
 
 // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
 const io = new Server(server, {
     cors: {
-        origin: 'https://realtime-app-client-vcqm.vercel.app/',
-        methods: ['GET', 'POST'],
+        origin: '*',
+
     },
 });
 
