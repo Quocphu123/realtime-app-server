@@ -14,7 +14,9 @@ let allUsers = [];
 app.use(cors()); // Add cors middleware
 const server = http.createServer(app);
 
-
+server.prependListener("request", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+});
 
 // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
 const io = new Server(server, {
