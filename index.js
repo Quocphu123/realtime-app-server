@@ -19,7 +19,7 @@ const server = http.createServer(app);
 // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
 const io = new Server(server, {
     cors: {
-        origin: 'https://realtime-app-server.onrender.com',
+        origin: '*',
         methods: ['GET', 'POST'],
     },
 });
